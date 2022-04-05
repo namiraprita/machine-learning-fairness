@@ -45,6 +45,7 @@ unique(raw_data$race)
 # Filter data for only Caucasians and African-Americans
 # Create new column for length of stay and remove NAs
 # Change variables into factors
+# Perform normalization
 df = raw_data %>%
   select(sex, age_cat, race, priors_count, c_charge_degree, c_jail_in, c_jail_out, two_year_recid) %>%
   filter(race == "Caucasian" | race == "African-American") %>%
@@ -56,7 +57,9 @@ df = raw_data %>%
          age_cat = factor(age_cat, levels = c("< 25", "25 - 45", "> 45")), 
          race = factor(race, levels = c("Caucasian", "African-American")), 
          c_charge_degree = factor(c_charge_degree), 
-         two_year_recid = factor(two_year_recid))
+         two_year_recid = factor(two_year_recid)) %>%
+  mutate(priors_count = (priors_count - mean(priors_count)) / sd(priors_count),
+         length_of_stay = (length_of_stay - mean(length_of_stay)) / sd(length_of_stay))
 nrow(df)
 ```
 
@@ -94,7 +97,7 @@ p_age_race = df %>%
 p_priors_race = df %>%
   ggplot(aes(x=priors_count, fill=race)) +
   geom_density(alpha=0.6) +
-  labs(x="Priors count", y="Density") +
+  labs(x="Priors count (normalized)", y="Density") +
   theme_classic()
 
 p_recid_race = df %>%
@@ -107,12 +110,22 @@ p_recid_race = df %>%
 grid.arrange(p_sex_race, p_age_race, p_priors_race, p_recid_race, ncol = 2)
 ```
 
-Run a simple logistic regression to under how each variable interacts with `two_year_recid`.
+We also ran a simple logistic regression to understand how each variable interacts with `two_year_recid`.
 
 ```{r}
 model = glm(two_year_recid~., data = df, family = "binomial")
 summary(model)
 ```
+
+Some salient observations:
+
++ Male defendants are `r round(exp(summary(model)$coef[2]), 2)` times more likely to recidivate within 2 years than female defendants.
+
++ The older the defendants are, the less likely they are to recidivate within 2 years as compared to the younger defendants.
+
++ For a unit SD increase in prior felony that a defendant has, they are `r round(exp(summary(model)$coef[6]), 2)` times more likely to recidivate within 2 years.
+
++ Surprisingly, race is not that statistically significant when predicting a defendant's recidivism rate. It probably means that the other features are more "useful" in predicting recidivism than race.
 
 # Output csv
 

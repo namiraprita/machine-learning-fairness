@@ -1,0 +1,121 @@
+---
+title: "EDA and cleaning on COMPAS data"
+subtitle: "Applied Data Science Project 4"
+author: "Chang Lu, Jiaxin Yu, Marcus Loke, Xiran Lin, Zaigham Khan"
+date: "Spring 2022"
+output:
+  html_document: 
+    theme: lumen
+    toc: true
+    toc_float: true
+    number_sections: true
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r, message=FALSE, warning=FALSE}
+# Load required libraries
+library(dplyr)
+library(ggplot2)
+library(grid)
+library(gridExtra)
+```
+
+# Load the data
+
+We will load the COMPAS data located in `../data/`. Not all features are useful for the analysis, therefore we only select `sex`, `age_cat`, `race`, `priors_count`, `c_charge_degree`, `c_jail_in`, `c_jail_out` and `two_year_recid`.
+
+```{r}
+# Load data and explore
+raw_data = read.csv("../data/compas-scores-two-years.csv")
+nrow(raw_data)
+```
+
+# Clean
+
+There are six different types of races in the data. But since we are only interested in a binary attribute for `race` as dictated by the project guidelines, we will filter the dataset for only `Caucasian` and `African-American`. Note that `race` will be our sensitive attribute.
+
+```{r}
+unique(raw_data$race)
+```
+
+```{r}
+# Filter data for only Caucasians and African-Americans
+# Create new column for length of stay and remove NAs
+# Change variables into factors
+df = raw_data %>%
+  select(sex, age_cat, race, priors_count, c_charge_degree, c_jail_in, c_jail_out, two_year_recid) %>%
+  filter(race == "Caucasian" | race == "African-American") %>%
+  mutate(length_of_stay = as.numeric(as.Date(c_jail_out) - as.Date(c_jail_in))) %>%
+  filter(!is.na(length_of_stay)) %>%
+  select(sex:c_charge_degree, length_of_stay, two_year_recid) %>%
+  mutate(age_cat = recode(age_cat, "Less than 25" = "< 25", "Greater than 45" = "> 45")) %>%
+  mutate(sex = factor(sex), 
+         age_cat = factor(age_cat, levels = c("< 25", "25 - 45", "> 45")), 
+         race = factor(race, levels = c("Caucasian", "African-American")), 
+         c_charge_degree = factor(c_charge_degree), 
+         two_year_recid = factor(two_year_recid))
+nrow(df)
+```
+
+# Explore
+
+```{r}
+table(df$race)
+```
+
+Below we plot the proportion of black and white defendants by their gender and whether they recidivated within two years. Some salient observations:
+
++ The proportion of black male defendants is greater than that of white male defendants. The same can be said of female defendants but the proportion is quite similar for black female and white female defendants.
+
++ Proportionally, there is a higher amount of younger black defendants than white defendants (in the "< 25" and the "25 - 45" category). The proportion of black defendants decreases with age while the proportion of white defendants increases with age.
+
++ There is a (slight) higher number of black defendants with previous felonies than white defendants.
+
++ Black defendants have higher recidivation (within 2 years) as compared to white defendants.
+
+```{r}
+p_sex_race = df %>%
+  ggplot(aes(x=sex, fill=race)) +
+  geom_bar(position = "fill", alpha = 0.6) +
+  theme_classic() +
+  labs(x = "Sex",
+       y = "Proportion")
+
+p_age_race = df %>%
+  ggplot(aes(x=age_cat, fill=race)) +
+  geom_bar(position = "fill", alpha = 0.6) +
+  theme_classic() +
+  labs(x = "Age category",
+       y = "Proportion")
+
+p_priors_race = df %>%
+  ggplot(aes(x=priors_count, fill=race)) +
+  geom_density(alpha=0.6) +
+  labs(x="Priors count", y="Density") +
+  theme_classic()
+
+p_recid_race = df %>%
+  ggplot(aes(x=two_year_recid, fill=race)) +
+  geom_bar(position = "fill", alpha = 0.6) +
+  theme_classic() +
+  labs(x = "Recidivate within two years",
+       y = "Proportion")
+
+grid.arrange(p_sex_race, p_age_race, p_priors_race, p_recid_race, ncol = 2)
+```
+
+Run a simple logistic regression to under how each variable interacts with `two_year_recid`.
+
+```{r}
+model = glm(two_year_recid~., data = df, family = "binomial")
+summary(model)
+```
+
+# Output csv
+
+```{r}
+write.csv(df, "../output/compas-scores-two-years(cleaned).csv", row.names = FALSE)
+```

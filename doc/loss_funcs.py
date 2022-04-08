@@ -8,13 +8,14 @@ from copy import deepcopy
 
 
 
-def _hinge_loss(w, X, y):
+def _hinge_loss(w, X, y, C):
 
     
     yz = y * np.dot(X,w) # y * (x.w)
     yz = np.maximum(np.zeros_like(yz), (1-yz)) # hinge function
     
     return sum(yz)
+
 
 def _logistic_loss(w, X, y, return_arr=None):
 	"""Computes the logistic loss.

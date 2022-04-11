@@ -28,7 +28,7 @@ class SVM:
             return w
         
         elif apply_fairness_constraints == 1:
-            print ("running Custom model")
+            print ("Running custom model with fairness constraints")
 
             if gamma is not None and gamma !=0:
 

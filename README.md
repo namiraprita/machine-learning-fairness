@@ -17,7 +17,7 @@ Term: Spring 2022
 
 + **Results summary**: Placeholder.
 
-<img src="figs/results_summary.png" width="400">
+<img src="figs/results_summary.png" width="500">
 
 + **Technologies used**: R (EDA and data cleaning) and Python (modeling work for LR, SVM, C-LR, C-SVM and FFS).
 	

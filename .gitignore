@@ -1,3 +1,4 @@
 doc/*.Rhistory
 doc/.ipynb_checkpoints
 doc/__pycache__
+*.Rhistory

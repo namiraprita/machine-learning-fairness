@@ -5,8 +5,8 @@
 Term: Spring 2022
 
 + Team: Group 5
-+ Project title: Maximizing Accuracy under Fairness Constraints (C-LR and C-SVM) and Information Theoretic Measures for Fairness-Aware Feature selection (FFS)
-+ Team members:
++ **Project title**: Maximizing Accuracy under Fairness Constraints (C-LR and C-SVM) and Information Theoretic Measures for Fairness-Aware Feature selection (FFS)
++ **Team members**:
   + [Chang Lu](cl4150@columbia.edu) (cl4150@columbia.edu)
   + [Jiaxin Yu](jy3161@columbia.edu) (jy3161@columbia.edu)
   + [Marcus Loke](https://www.linkedin.com/in/lokemarcus/) (ml4636@columbia.edu)
@@ -17,7 +17,7 @@ Term: Spring 2022
 
 + **Results summary**:
 
-+ **Technologies used**:
++ **Technologies used**: R (EDA and data cleaning) and Python (modeling work).
 	
 **Contribution statement**: [default] All team members contributed equally in all stages of this project. All team members approve our work presented in this GitHub repository including this contributions statement. 
 

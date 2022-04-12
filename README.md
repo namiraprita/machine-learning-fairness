@@ -1,5 +1,7 @@
 # Project 4: Machine Learning Fairness
 
+<img src="figs/propublica.png" width="500">
+
 ### [Project Description](doc/project4_desc.md)
 
 Term: Spring 2022

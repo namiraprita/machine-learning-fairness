@@ -1,6 +1,7 @@
 # Project 4: Machine Learning Fairness
 
-<img src="figs/propublica.png" width="500">
+<img src="figs/propublica.png" width="600">
+Source: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
 
 ### [Project Description](doc/project4_desc.md)
 

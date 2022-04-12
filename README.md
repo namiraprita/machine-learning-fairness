@@ -15,7 +15,7 @@ Term: Spring 2022
 
 + **Project summary**: This project explores machine learning fairness on the [COMPAS dataset](https://www.propublica.org/datastore/dataset/compas-recidivism-risk-score-data-and-analysis) by comparing two methods/algorithms proposed by the following papers, (1) [Maximizing Accuracy under Fairness Constraints (C-SVM and C-LR)](doc/Fairness_Constraints_Mechanisms_for_Fair_Classification.pdf) and (2) [Information Theoretic Measures for Fairness-Aware Feature selection (FFS)](doc/Information_Theoretic_Measures_for_Fairness-aware_Feature_Selection.pdf). These algorithms shall be termed as A2 and A7 respectively throughout this project. The main aim is to predict the two-year-recidivism of black and white defendants while holding racial status as a sensitive attribute. Our A2 algorithm focuses on maximizing accuracy under fairness constraints by minimizing the loss function subject to a covariance threshold between race (sensitive attribute) and the decision boundary; while the A7 algorithm uses the joint statistics of the data to derive two information theoretic measures that can be used to quantify the accuracy and discrimination aspect for each subset of the feature space. We then evaluated each model's performance using accuracy and calibration. 
 
-+ **Results summary**: Placeholder.
++ **Results summary**: The FFS models performed best in calibration and had comparable accuracy with the unconstrained models. The FFS-LR model was picked over the FFS-SVM as the model of choice since it is more interpretable and simpler to implement.
 
   <img src="figs/results_summary.png" width="500">
 

@@ -13,11 +13,11 @@ Term: Spring 2022
   + [Xiran Lin](xl3000@columbia.edu) (xl3000@columbia.edu)
   + [Zaigham Khan](https://www.linkedin.com/in/zaigham-khan-columbia/) (zak2131@columbia.edu)
 
-+ **Project summary**: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
++ **Project summary**: This project explores machine learning fairness by comparing two methods/algorithms proposed by the following papers, (1) [Maximizing Accuracy under Fairness Constraints (C-SVM and C-LR)](doc/Fairness Constraints Mechanisms for Fair Classification.pdf) and (2) [Information Theoretic Measures for Fairness-Aware Feature selection (FFS)](doc/Information Theoretic Measures for Fairness-aware Feature Selection.pdf).
 
 + **Results summary**:
 
-+ **Technologies used**: R (EDA and data cleaning) and Python (modeling work).
++ **Technologies used**: R (EDA and data cleaning) and Python (modeling work for LR, SVM, C-LR, C-SVM and FFS).
 	
 + **Contribution statement**: All team members approve our work presented in this GitHub repository including this contributions statement. 
   + **Chang Lu (cl4150)** worked on the EDA and feature selection with Marcus and implemented the SVM and C-SVM algorithm. He adapted the helper function, SVM_scratch.py, and customized it for our C-SVM algorithm. He also created the function to compute calibration.

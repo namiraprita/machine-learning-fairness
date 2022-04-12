@@ -9,9 +9,9 @@ Term: Spring 2022
 + Team members:
   + [Chang Lu](cl4150@columbia.edu) (cl4150@columbia.edu)
   + [Jiaxin Yu](jy3161@columbia.edu) (jy3161@columbia.edu)
-	+ [Marcus Loke](https://www.linkedin.com/in/lokemarcus/) (ml4636@columbia.edu)
-	+ [Xiran Lin](xl3000@columbia.edu) (xl3000@columbia.edu)
-	+ [Zaigham Khan](https://www.linkedin.com/in/zaigham-khan-columbia/) (zak2131@columbia.edu)
+  + [Marcus Loke](https://www.linkedin.com/in/lokemarcus/) (ml4636@columbia.edu)
+  + [Xiran Lin](xl3000@columbia.edu) (xl3000@columbia.edu)
+  + [Zaigham Khan](https://www.linkedin.com/in/zaigham-khan-columbia/) (zak2131@columbia.edu)
 
 + **Project summary**: Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
 

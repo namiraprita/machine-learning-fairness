@@ -13,7 +13,7 @@ Term: Spring 2022
   + [Xiran Lin](xl3000@columbia.edu) (xl3000@columbia.edu)
   + [Zaigham Khan](https://www.linkedin.com/in/zaigham-khan-columbia/) (zak2131@columbia.edu)
 
-+ **Project summary**: This project explores machine learning fairness by comparing two methods/algorithms proposed by the following papers, (1) [Maximizing Accuracy under Fairness Constraints (C-SVM and C-LR)](doc/Fairness Constraints Mechanisms for Fair Classification.pdf) and (2) [Information Theoretic Measures for Fairness-Aware Feature selection (FFS)](doc/Information Theoretic Measures for Fairness-aware Feature Selection.pdf).
++ **Project summary**: This project explores machine learning fairness by comparing two methods/algorithms proposed by the following papers, (1) [Maximizing Accuracy under Fairness Constraints (C-SVM and C-LR)](doc/Fairness_Constraints_Mechanisms_for_Fair_Classification.pdf) and (2) [Information Theoretic Measures for Fairness-Aware Feature selection (FFS)](doc/Information_Theoretic_Measures_for_Fairness-aware_Feature_Selection.pdf).
 
 + **Results summary**:
 

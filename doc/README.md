@@ -7,3 +7,4 @@ The doc directory contains the report or presentation files. It can have subfold
 + *eda_cleaning.html*: The report for the EDA and cleaning.
 + *.py files*: Helper functions for the modeling work.
 + *.pdf files*: Papers on A2 and A7.
++ *Presentation_Slides.pdf*: Presentation slides for the project.

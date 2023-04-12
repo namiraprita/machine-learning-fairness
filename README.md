@@ -1,7 +1,7 @@
 # Project 4: Machine Learning Fairness
 
-<img src="figs/propublica.png" width="600">
-Photo source: https://www.propublica.org/article/machine-bias-risk-assessments-in-criminal-sentencing
+<img src="figs/polarization.jpg" width="600">
+Photo source: https://www.uva.nl/en/shared-content/faculteiten/en/faculteit-der-maatschappij-en-gedragswetenschappen/news/2021/05/we-are-not-as-polarized-as-we-think.html?cb
 
 ### [Project Description](doc/project4_desc.md)
 
